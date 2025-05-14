@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AppContext from "../store/GlobalContext";
-import data from "../../data/data.json";
+import data from "../data/data.json";
 import Hero from "../components/Hero";
 
 const Page = () => {
