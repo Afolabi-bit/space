@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    background-image: url("../src/assets/background-stars.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#nav {
+    opacity: 0;
+    z-index: -10;
+    transition: all 0.24s ease-out;
+    overflow: hidden;
+}
+
+#nav.active {
+    opacity: 1;
+    z-index: 1000;
+    padding-top: 40px;
+}
+
+#nav > div{
+    width: calc(100vw - 48px);
+
+}
+
+#nav button {
+    pointer-events: none;
+}
+
+#nav.active button {
+    pointer-events: all;
+}
+
+.hero {
+    padding-top: 95px;
+    padding-bottom: 47px;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.hero .img-wrapper{
+    width: 111px;
+    height: 111px;
+    margin-bottom: 98px;
+    position: relative;
+}
+
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.img-wrapper img.geology{
+    position: absolute;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translateX(-50%);
+    bottom: -60px;
+}
+
+.img-wrapper img.saturn{
+    bottom: -40px;
+}
+
+.hero .text{
+    margin-bottom: 28px;
+}
+
+.hero .text h1{
+    font-family: 'Antonio', sans-serif;
+    font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 52px;
+text-align: center;
+text-transform: uppercase;
+color: #FFFFFF;
+margin-bottom: 16px;
+}
+
+.hero .text .paragraph{
+    
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 22px;
+text-align: center;
+
+color: #FFFFFF;
+margin: auto;
+margin-bottom: 33px;
+}
+
+.hero .text .source {
+    font-size: 12px;
+    font-style: normal;
+    line-height: 25px;
+    color: #ffffff;
+    opacity: 0.5;
+    mix-blend-mode: normal;
+}
+
+.hero .source {
+    display: flex;
+    justify-content: center;
+}
+
+.hero .source a {
+    display: inline-flex;
+    margin-left: 3px;
+
+}
+
+.hero .source a span{
+text-decoration: underline;
+}
+
+.hero .source a img{
+    object-fit: contain;
+    margin-left: 3px;
+
+}
