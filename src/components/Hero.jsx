@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import icon from "../assets/icon-source.svg";
+import icon from "../../public/assets/icon-source.svg";
 import DetailsCard from "../utilities/DetailsCard";
 import AppContext from "../store/GlobalContext";
 
