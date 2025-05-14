@@ -9,7 +9,7 @@ body{
 }
 
 #root{
-    background-image: url("../src/assets/background-stars.svg");
+    background-image: url("../public/assets/background-stars.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
