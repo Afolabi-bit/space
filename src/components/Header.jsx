@@ -7,7 +7,7 @@ import AppContext from "../store/GlobalContext";
 export default function Header() {
 	const { navIsActive, toggleNav } = useContext(AppContext);
 	return (
-		<header className="w-full pt-[16px] z-10">
+		<header className="w-full pt-[16px] z-10 md:hidden">
 			<div className="h-[36px] px-[24px] z-[1000]  mb-[17px] flex justify-between items-center">
 				<h2 className="text-white text-[28px] leading-[36px] uppercase tracking-[-1.05px] font-antonio ">
 					THE PLANETS

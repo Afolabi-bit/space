@@ -7,7 +7,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 	const { section, page } = useContext(AppContext);
 	console.log(page);
 	return (
-		<div className="hero">
+		<div className="hero md:hidden">
 			<div className="img-wrapper">
 				{section !== "structures" && (
 					<img
