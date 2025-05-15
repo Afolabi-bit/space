@@ -3,6 +3,7 @@ import MobileNavbar from "../layout/MobileNavbar";
 import PageOptions from "../layout/PageOptions";
 import Border from "../utilities/Border";
 import AppContext from "../store/GlobalContext";
+import menuIcon from "../../public/assets/icon-hamburger.svg";
 
 export default function Header() {
 	const { navIsActive, toggleNav } = useContext(AppContext);
@@ -16,9 +17,13 @@ export default function Header() {
 					onClick={toggleNav}
 					className="flex flex-col h-full justify-center gap-[4px]"
 				>
+					{/* <span className="w-[24px] h-[3px] bg-white"></span>
 					<span className="w-[24px] h-[3px] bg-white"></span>
-					<span className="w-[24px] h-[3px] bg-white"></span>
-					<span className="w-[24px] h-[3px] bg-white"></span>
+					<span className="w-[24px] h-[3px] bg-white"></span> */}
+					<img
+						src={menuIcon}
+						alt=""
+					/>
 				</button>
 			</div>
 			<Border />

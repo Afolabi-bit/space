@@ -5,10 +5,53 @@ import AppContext from "../store/GlobalContext";
 
 const Hero = ({ images, name, text, wiki_link, details }) => {
 	const { section, page } = useContext(AppContext);
-	console.log(page);
+
+	let h;
+	switch (name) {
+		case "Mercury":
+			h = "111px";
+			break;
+
+		case "Venus":
+			h = "154px";
+			break;
+
+		case "Earth":
+			h = "173px";
+			break;
+
+		case "Mars":
+			h = "129px";
+			break;
+
+		case "Jupiter":
+			h = "224px";
+			break;
+
+		case "Saturn":
+			h = "256px";
+			break;
+
+		case "Uranus":
+			h = "176px";
+			break;
+		case "Neptune":
+			h = "173px";
+			break;
+
+		default:
+			break;
+	}
+
 	return (
 		<div className="hero md:hidden">
-			<div className="img-wrapper">
+			<div
+				style={{
+					height: h,
+					width: h,
+				}}
+				className="img-wrapper"
+			>
 				{section !== "structures" && (
 					<img
 						src={images.planet}
