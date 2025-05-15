@@ -46,7 +46,7 @@ const btnsData = [
 	},
 ];
 
-function NavBtn({ img, name, chevron, border }) {
+function NavBtn({ img, name, chevron, hasBottomBorder }) {
 	const { toggleNav, changePage, changeSection } = useContext(AppContext);
 	return (
 		<button
@@ -74,17 +74,17 @@ function NavBtn({ img, name, chevron, border }) {
 					alt="right arrow icon"
 				/>
 			</div>
-			{border && <Border />}
+			{hasBottomBorder && <Border />}
 		</button>
 	);
 }
 
-const MobileNavbar = ({ isActive }) => {
+const MobileNavbar = () => {
 	const { navIsActive } = useContext(AppContext);
 	return (
 		<nav
 			id="nav"
-			className={`w-full bg-navyBg absolute px-[24px] pb-[40px] left-0 top-[73px] ${
+			className={`w-full bg-navyBg absolute px-[24px] pb-[40px] left-0 top-[73px] md:hidden ${
 				navIsActive ? "active" : ""
 			}
 			`}
@@ -98,7 +98,7 @@ const MobileNavbar = ({ isActive }) => {
 								img={btn.img}
 								name={btn.name}
 								chevron={chevronIcon}
-								border={true}
+								hasBottomBorder={true}
 							/>
 						);
 					}

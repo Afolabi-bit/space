@@ -18,7 +18,7 @@ const PageOptions = () => {
 	const bgStyle = accents[Object.keys(accents).find((key) => key === page)];
 
 	return (
-		<div className="flex w-full h-[50px] items-center justify-between text-white px-[24px]">
+		<div className="flex w-full h-[50px] items-center justify-between text-white px-[24px] md:hidden">
 			<button
 				onClick={() => changeSection("overview")}
 				className="flex justify-center items-center relative h-full w-[80px]"
