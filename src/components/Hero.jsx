@@ -2,6 +2,7 @@ import { useContext } from "react";
 import icon from "../../public/assets/icon-source.svg";
 import DetailsCard from "../utilities/DetailsCard";
 import AppContext from "../store/GlobalContext";
+import FooterData from "../layout/FooterData";
 
 const Hero = ({ images, name, text, wiki_link, details }) => {
 	const { section, page, changeSection } = useContext(AppContext);
@@ -136,7 +137,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 							height: tabletImageDimension,
 							width: tabletImageDimension,
 						}}
-						className="img-wrapper-tablet "
+						className="img-wrapper-tablet relative"
 					>
 						{section !== "structures" && (
 							<img
@@ -154,11 +155,9 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						)}
 						{section === "surface" && (
 							<img
-								className={
-									page === "Saturn"
-										? "saturn geology transition-all"
-										: "geology transition-all"
-								}
+								className={`${
+									page === "Saturn" && "bottom-[-5px]"
+								} absolute w-[120px] h-[120px] object-contain left-[50%] translate-x-[-50%] bottom-[-95px]`}
 								src={images.geology}
 								alt=""
 							/>
@@ -187,7 +186,9 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 					<div className="min-w-[281px] h-[152px] flex flex-col gap-[16px] ">
 						<button
 							onClick={() => changeSection("overview")}
-							className="w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]"
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								section === "overview" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
 						>
 							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
 								01
@@ -196,7 +197,9 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</button>
 						<button
 							onClick={() => changeSection("structures")}
-							className="w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white  text-left px-[20px]"
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								section === "structures" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
 						>
 							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
 								02
@@ -205,7 +208,9 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</button>
 						<button
 							onClick={() => changeSection("surface")}
-							className="w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white  text-left px-[20px]"
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								section === "surface" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
 						>
 							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
 								03
@@ -214,25 +219,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</button>
 					</div>
 				</div>
-
-				<div className="w-full flex flex-col gap-[8px]">
-					<DetailsCard
-						parameter={"rotation time"}
-						detail={details.rotation}
-					/>
-					<DetailsCard
-						parameter={"revolution time"}
-						detail={details.revolution}
-					/>
-					<DetailsCard
-						parameter={"radius"}
-						detail={details.radius}
-					/>
-					<DetailsCard
-						parameter={"average temp."}
-						detail={details.temperature}
-					/>
-				</div>
+				<FooterData details={details} />
 			</div>
 		</>
 	);
