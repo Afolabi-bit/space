@@ -103,7 +103,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						height: mobileImageDimension,
 						width: mobileImageDimension,
 					}}
-					className="img-wrapper-mobile md:hidden"
+					className="img-wrapper-mobile  md:hidden"
 				>
 					{section !== "structures" && (
 						<img
@@ -131,13 +131,13 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 				</div>
 
 				{/* Images for Tablet screens */}
-				<div className="hidden md:flex justify-center items-center w-full h-[460px]">
+				<div className="hidden  md:flex justify-center items-center w-full h-[460px]">
 					<div
 						style={{
 							height: tabletImageDimension,
 							width: tabletImageDimension,
 						}}
-						className="img-wrapper-tablet relative"
+						className="img-wrapper-tablet  relative"
 					>
 						{section !== "structures" && (
 							<img
@@ -156,8 +156,8 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						{section === "surface" && (
 							<img
 								className={`${
-									page === "Saturn" && "bottom-[-5px]"
-								} absolute w-[120px] h-[120px] object-contain left-[50%] translate-x-[-50%] bottom-[-95px]`}
+									page === "Saturn" && "bottom-[1px]"
+								} absolute w-[120px] h-[120px] object-contain left-[50%] translate-x-[-50%] bottom-[-90px]`}
 								src={images.geology}
 								alt=""
 							/>
@@ -169,7 +169,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 					<div className="text text-center md:min-w-[339px]  md:text-left">
 						<h1>{name}</h1>
 						<p className="paragraph font-spartan">{text}</p>
-						<p className="source font-spartan md:justify-start  w-fit">
+						<p className="source font-spartan md:justify-start  md:w-fit">
 							<span>Source: </span>{" "}
 							<a
 								href={wiki_link}
@@ -183,7 +183,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 							</a>
 						</p>
 					</div>
-					<div className="min-w-[281px] h-[152px] flex flex-col gap-[16px] ">
+					<div className=" hidden min-w-[281px] h-[152px] md:flex flex-col gap-[16px] ">
 						<button
 							onClick={() => changeSection("overview")}
 							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
@@ -219,6 +219,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</button>
 					</div>
 				</div>
+
 				<FooterData details={details} />
 			</div>
 		</>

@@ -34,7 +34,7 @@ const Page = () => {
 			: geology.source;
 
 	return (
-		<section className="">
+		<section>
 			{!navIsActive && (
 				<Hero
 					name={name}
