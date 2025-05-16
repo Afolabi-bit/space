@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import AppContext from "../store/GlobalContext";
+
 const Navbar = () => {
+	const { page, changePage } = useContext(AppContext);
+
 	const planets = [
 		"Mercury",
 		"Venus",
@@ -15,6 +20,9 @@ const Navbar = () => {
 			{planets.map((planet, index) => {
 				return (
 					<button
+						onClick={() => {
+							changePage(planet);
+						}}
 						className="font-spartan font-[700] text-[11px] leading-[25px] tracking-[1px] uppercase text-white"
 						key={index}
 					>
