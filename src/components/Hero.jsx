@@ -291,7 +291,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 										page === "Jupiter" ||
 										page === "Uranus" ||
 										page === "Neptune"
-											? "lg:bottom-[-10px]"
+											? "lg:bottom-[-25px]"
 											: page === "Saturn"
 											? "bottom-[90px]"
 											: "lg:bottom-[-90px]"
