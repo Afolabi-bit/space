@@ -2,7 +2,7 @@ import DetailsCard from "../utilities/DetailsCard";
 
 const FooterData = ({ details }) => {
 	return (
-		<div className="w-full  flex flex-col gap-[8px] md:flex-row md:justify-between">
+		<div className="w-full  flex flex-col gap-[8px] md:flex-row md:justify-between ">
 			<DetailsCard
 				parameter={"rotation time"}
 				detail={details.rotation}

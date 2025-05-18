@@ -148,8 +148,15 @@ text-decoration: underline;
         line-height: 62px;
         margin-bottom: 24px;
     }
-.hero .text .paragraph{
+    .hero .text .paragraph{
         font-size: 11px;
         margin-bottom: 32px;
+    }
 }
+
+@media screen and (min-width: 1024px) {
+   .desktop-wrapper{
+    height: 500px;
+    border: 1px solid red;
+   }
 }

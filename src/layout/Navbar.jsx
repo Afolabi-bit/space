@@ -29,7 +29,7 @@ const Navbar = () => {
 	const bgStyle = accents[Object.keys(accents).find((key) => key === page)];
 
 	return (
-		<nav className="hidden md:flex justify-between gap-[33px] w-[665px] mt-[39px] lg:m-0 lg:h-full ">
+		<nav className="hidden md:flex justify-between gap-[33px] w-[665px] mt-[39px] lg:m-0 lg:h-full">
 			{planets.map((planet, index) => {
 				return (
 					<button

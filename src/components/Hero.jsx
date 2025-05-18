@@ -93,10 +93,47 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 		default:
 			break;
 	}
+	let desktopImageDimension;
+	switch (name) {
+		case "Mercury":
+			desktopImageDimension = "290px";
+			break;
+
+		case "Venus":
+			desktopImageDimension = "400px";
+			break;
+
+		case "Earth":
+			desktopImageDimension = "450px";
+			break;
+
+		case "Mars":
+			desktopImageDimension = "336px";
+			break;
+
+		case "Jupiter":
+			desktopImageDimension = "582px";
+			break;
+
+		case "Saturn":
+			desktopImageDimension = "666.1px";
+			break;
+
+		case "Uranus":
+			tabletImageDimension = "458px";
+			break;
+		case "Neptune":
+			tabletImageDimension = "450px";
+			break;
+
+		default:
+			break;
+	}
 
 	return (
 		<>
-			<div className="hero px-[24px] md:px-[40px] md:pt-[0] lg:px-[165]">
+			{/* Mobile and tablet */}
+			<div className="hero px-[24px] md:px-[40px] md:pt-[0] lg:hidden">
 				{/* Images for mobile screens */}
 				<div
 					style={{
@@ -165,15 +202,74 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 					</div>
 				</div>
 
-				<div className="lg:flex lg:h-[754px] ">
-					<div className="hidden lg:flex justify-center items-center w-[760px]">
-						{/* Images for Tablet screens */}
+				<div className="md:flex items-center gap-[69px] lg:hidden">
+					<div className="text text-center md:min-w-[339px]  md:text-left">
+						<h1>{name}</h1>
+						<p className="paragraph font-spartan">{text}</p>
+						<p className="source font-spartan md:justify-start  md:w-fit">
+							<span>Source: </span>{" "}
+							<a
+								href={wiki_link}
+								target="_blank"
+							>
+								<span>Wikipedia</span>
+								<img
+									src={icon}
+									alt="icon"
+								/>
+							</a>
+						</p>
+					</div>
+					<div className=" hidden min-w-[281px] h-[152px] md:flex flex-col gap-[16px]">
+						<button
+							onClick={() => changeSection("overview")}
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								section === "overview" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
+						>
+							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
+								01
+							</span>
+							overview
+						</button>
+						<button
+							onClick={() => changeSection("structures")}
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all  ${
+								section === "structures" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
+						>
+							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
+								02
+							</span>
+							internal structure
+						</button>
+						<button
+							onClick={() => changeSection("surface")}
+							className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all  ${
+								section === "surface" ? bgStyle : "hover:bg-[#38384F]"
+							}`}
+						>
+							<span className="font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.9px] text-white opacity-[0.5] mix-blend-normal pr-[17px] ">
+								03
+							</span>
+							surface geology
+						</button>
+					</div>
+				</div>
+
+				<FooterData details={details} />
+			</div>
+
+			{/* Desktop */}
+			<div className="hidden lg:block w-full px-[165px] pb-[56px] pt-[126px] ">
+				<div className="flex justify-between">
+					<div className="w-[540px] flex justify-center items-top">
 						<div
 							style={{
-								height: tabletImageDimension,
-								width: tabletImageDimension,
+								height: desktopImageDimension,
+								width: desktopImageDimension,
 							}}
-							className="img-wrapper-tablet  relative"
+							className=" relative"
 						>
 							{section !== "structures" && (
 								<img
@@ -191,9 +287,15 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 							)}
 							{section === "surface" && (
 								<img
-									className={`${
-										page === "Saturn" && "bottom-[1px]"
-									} absolute w-[120px] h-[120px] object-contain left-[50%] translate-x-[-50%] bottom-[-90px]`}
+									className={`absolute w-[120px] h-[120px] object-contain left-[50%] translate-x-[-50%] bottom-[-90px] lg:w-[163px] lg:h-[199px] ${
+										page === "Jupiter" ||
+										page === "Uranus" ||
+										page === "Neptune"
+											? "lg:bottom-[-10px]"
+											: page === "Saturn"
+											? "bottom-[90px]"
+											: "lg:bottom-[-90px]"
+									}`}
 									src={images.geology}
 									alt=""
 								/>
@@ -201,25 +303,31 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</div>
 					</div>
 
-					<div className="md:flex items-center gap-[69px] lg:flex-col lg:w-[350px] ">
-						<div className="text text-center md:min-w-[339px]  md:text-left">
-							<h1>{name}</h1>
-							<p className="paragraph font-spartan">{text}</p>
-							<p className="source font-spartan md:justify-start  md:w-fit">
+					<div className="w-[350px] flex flex-col justify-center">
+						<div className="">
+							<h1 className="font-antonio text-[80px] leading-[104px] uppercase font-[400] text-white mb-[23px] ">
+								{name}
+							</h1>
+							<p className="font-[400] text-[14px] leading-[25px] text-white font-spartan mb-[24px]">
+								{text}
+							</p>
+							<p className="font-spartan text-[14px] leading-[25px] mix-blend-normal opacity-[0.5] font-[400] text-white justify-start mb-[28px] w-fit">
 								<span>Source: </span>{" "}
 								<a
 									href={wiki_link}
 									target="_blank"
+									className="inline-flex underline"
 								>
 									<span>Wikipedia</span>
 									<img
+										className="object-contain ml-[10px]"
 										src={icon}
 										alt="icon"
 									/>
 								</a>
 							</p>
 						</div>
-						<div className=" hidden min-w-[281px] h-[152px] md:flex flex-col gap-[16px] ">
+						<div className="gap-[16px] flex flex-col justify-between">
 							<button
 								onClick={() => changeSection("overview")}
 								className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
@@ -233,7 +341,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 							</button>
 							<button
 								onClick={() => changeSection("structures")}
-								className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all  ${
 									section === "structures" ? bgStyle : "hover:bg-[#38384F]"
 								}`}
 							>
@@ -244,7 +352,7 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 							</button>
 							<button
 								onClick={() => changeSection("surface")}
-								className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all ${
+								className={`w-full border border-white border-opacity-[0.2] h-[40px] font-spartan font-[700] text-[9px] leading-[25px] tracking-[1.92] uppercase text-white text-left px-[20px]  transition-all  ${
 									section === "surface" ? bgStyle : "hover:bg-[#38384F]"
 								}`}
 							>
@@ -256,7 +364,6 @@ const Hero = ({ images, name, text, wiki_link, details }) => {
 						</div>
 					</div>
 				</div>
-
 				<FooterData details={details} />
 			</div>
 		</>
